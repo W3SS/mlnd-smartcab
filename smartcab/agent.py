@@ -95,7 +95,7 @@ class LearningAgent(Agent):
         #   Then, for each action available, set the initial Q-value to 0.0
     	if self.learning:
     	    if not state in self.Q:
-    		    self.Q[state] = dict()
+                self.Q[state] = dict()
 
             self.Q[state] = {action: 0.0 for action in self.valid_actions}
 
@@ -122,7 +122,7 @@ class LearningAgent(Agent):
             maxQActions = []
             for key, value in self.Q[state].iteritems():
                 if value == maxQ:
-                	maxQActions.append(key)
+                    maxQActions.append(key)
     	    action = random.choice(maxQActions)
 
         return action
@@ -139,7 +139,7 @@ class LearningAgent(Agent):
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
     	if self.learning:
-    	    self.Q[state][action] = reward * self.alpha + self.Q[state][action] * (1 - self.alpha)
+            self.Q[state][action] = reward * self.alpha + self.Q[state][action] * (1 - self.alpha)
 
         return
 
